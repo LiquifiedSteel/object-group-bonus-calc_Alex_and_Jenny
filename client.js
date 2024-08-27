@@ -52,9 +52,10 @@ function calculateIndividualEmployeeBonus( employee ) {
   let employeeBonus = {
     name: employee.name,
     bonusPercentage: 0,
+    totalCompensation: 0,
+    totalBonus: 0,
   }
 
-  
   if (employee.reviewRating === 3) {
     employeeBonus.bonusPercentage += 4;
   }
@@ -73,9 +74,13 @@ function calculateIndividualEmployeeBonus( employee ) {
   if (employeeBonus.bonusPercentage > 13) {
     employeeBonus.bonusPercentage = 13;
   }
-  console.log(employeeBonus)
-  // return new object with bonus results
 
+  const bP = employeeBonus.bonusPercentage / 100;
+  employeeBonus.totalBonus = employee.annualSalary * bP;
+  let salaryInt = Number(employee.annualSalary);
+  employeeBonus.totalCompensation = salaryInt + employeeBonus.totalBonus;
+  // return new object with bonus results
+  return employeeBonus;
 }
 
-calculateIndividualEmployeeBonus (employees[0])
+console.log(calculateIndividualEmployeeBonus (employees[0]));
