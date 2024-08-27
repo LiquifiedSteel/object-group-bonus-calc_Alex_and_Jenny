@@ -74,6 +74,7 @@ function calculateIndividualEmployeeBonus( employee ) {
   if (employeeBonus.bonusPercentage > 13) {
     employeeBonus.bonusPercentage = 13;
   }
+ 
 
   const bP = employeeBonus.bonusPercentage / 100;
   employeeBonus.totalBonus = employee.annualSalary * bP;
@@ -83,4 +84,11 @@ function calculateIndividualEmployeeBonus( employee ) {
   return employeeBonus;
 }
 
-console.log(calculateIndividualEmployeeBonus (employees[0]));
+
+for (let i of employees) {
+  console.log(calculateIndividualEmployeeBonus (i));
+}
+
+
+
+
