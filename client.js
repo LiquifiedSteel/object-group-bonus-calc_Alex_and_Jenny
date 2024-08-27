@@ -55,7 +55,9 @@ function calculateIndividualEmployeeBonus( employee ) {
     totalCompensation: 0,
     totalBonus: 0,
   }
-
+  if (employee.reviewRating <= 2) {
+    return employeeBonus;
+  }
   if (employee.reviewRating === 3) {
     employeeBonus.bonusPercentage += 4;
   }
